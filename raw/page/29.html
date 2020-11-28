@@ -1,0 +1,734 @@
+
+<SCRIPT language=javascript>
+<!--
+function apply()
+{
+  if(confirm('【宿舍網路問題及投影機/單槍維修勿在此申請!!!】是否確認不是??')){
+	   location.href='UnitApply.asp';
+    return false;
+    }
+}
+ function butQuery_onClick()
+ {
+     //if(document.form1.selType.value.length>0 || document.form1.selUnit.value.length>0)
+
+     if(document.form1.selType0.value.length>0 && document.form1.selType00.value.length>0 ) {
+         for (i = 0; i < 40; i++) { 
+             if (w_type[i][1] == document.form1.selType00.value + '(' + document.form1.selType0.value + ')') {
+                 document.form1.selType.value = w_type[i][0]
+                 break;
+             }
+         }
+     }
+     else {
+         var YKK="";
+         if(document.form1.selType0.value.length>0 && document.form1.selType00.value.length == 0 ) {
+             YKK = document.form1.selType0.value;
+         } 
+         if(document.form1.selType0.value.length == 0 && document.form1.selType00.value.length > 0 ) {
+             YKK = document.form1.selType00.value;
+         } 
+         if (YKK != "") document.form1.selType.value = YKK;
+     }
+     document.form1.submit();
+ }
+
+ function pg_onchange()
+  {      
+    parent.location.href=form1.pg.value;
+  
+ }
+
+  function NavRollOver(oTd) {
+  if (!oTd.contains(event.fromElement)) {oTd.bgColor="#E2ECF5";}
+  }
+
+  function NavRollOut(oTd) { if (!oTd.contains(event.toElement)) { oTd.bgColor = "#FFFFFF"; } }
+
+  var department = [
+    [['人文學院','3000'],['文化與自然資源學系','7210'],['英語學系','6820'],['國語文學系','6800'],],[['12年國民基本教育適性學習課程與教學研發中心','29908'],['人工智慧教育暨發展中心','29915'],['中等教育階段藝術領域教學研究中心','29907'],['太陽能源人才培育中心','29916'],['本土語文課程與教學推廣中心','29917'],['民俗體育發展中心','29903'],['低階能源利用與開發教育推廣中心','29912'],['亞太美感暨戲劇教育研發中心','29909'],['性別培力及性平事件防治研究中心','29913'],['知識應用暨網路服務中心','29904'],['流域生態環境保育研究中心','29914'],['原住民族學生資源中心','29920'],['師資培育中心','9700'],['師資培育中心教學與輔導組','9701'],['師資培育中心綜合業務組','9702'],['校友服務中心','6300'],['校友服務中心校友服務組','6303'],['校友服務中心就業輔導組','6304'],['特殊教育中心','8700'],['能源與環境研究中心','29906'],['國立臺南大學社會參與辦公室','29919'],['通識教育中心','8500'],['視障教育與重建中心','8900'],['雲嘉南區環境教育區域中心','29911'],['電子計算機中心','8000'],['電子計算機中心行政與服務組','15701'],['電子計算機中心資訊系統組','8001'],['電子計算機中心網路組','8002'],['臺南學研究中心','29910'],['臺灣PISA國家研究中心','9997'],['輔導中心','8800'],['鋰電池研究發展中心','29905'],['應用電力電子設計與訓練中心','29918'],],[['附設實驗國民小學','9999'],['附屬高級中學','9998'],['附屬啟聰學校','99103'],],[['幼兒教育學系','6900'],['特殊教育學系','7300'],['教育學系','6700'],['教育學院','2000'],['諮商與輔導學系','6730'],['體育學系','7700'],],[['材料科學系','7600'],['理工學院','4000'],['資訊工程學系','8200'],['電機工程學系','9300'],['數位學習科技學系','8300'],['機電系統工程研究所','9400'],['應用數學系','7000'],],[['人事室','1000'],['主計室','1200'],['研究發展處','9200'],['研究發展處計畫服務組','9202'],['研究發展處創新育成中心','11405'],['研究發展處學術發展組','9203'],['校長室','0100'],['秘書室','0200'],['國際事務處','11700'],['國際事務處國際事務組','11701'],['國際事務處語文中心','11702'],['教務處','6000'],['教務處企劃組','6004'],['教務處研究生教務組','6003'],['教務處教學業務組','6002'],['教務處教學與學習發展中心','6006'],['教務處進修推廣組','6007'],['教務處數位影音學習組','6005'],['教務處學籍成績組','6001'],['陳副校長室','10201'],['楊副校長室','0110'],['學務處','6100'],['學務處生活輔導組','6101'],['學務處軍訓室','7900'],['學務處衛生保健組','6103'],['學務處課外活動指導組','6102'],['總務處','1500'],['總務處文書組','1501'],['總務處出納組','1503'],['總務處事務組','1502'],['總務處保管組','1505'],['總務處營繕組','1504'],['總務處環安組','11307'],['體育室','6500'],['體育室訓練活動組','6501'],['體育室場地設施組','6502'],],[['行政管理學系','20601'],['經營與管理學系','20602'],['管理學院','20600'],],[['博物館','11600'],['圖書館','6200'],['圖書館系統資訊組','6205'],['圖書館採訪編目組','6201'],['圖書館期刊組','6202'],['圖書館讀者服務組','6206'],],[['生物科技學系','8400'],['生態暨環境資源學系','20407'],['綠色能源科技學系','20408'],['環境與生態學院','5000'],],[['音樂學系','7100'],['視覺藝術與設計學系','7400'],['戲劇創作與應用學系','6920'],['藝術學院','3500'],],
+  ];
+      //alert( '-' + department[9][1][0] + '-');
+
+        var w_type = [
+  ['1','空調類(校本部)'],['2','土木建築類(校本部)'],['3','空調類(榮譽校區)'],['4','土木建築類(榮譽校區)'],['5','空調類(大同校區)'],['6','土木建築類(大同校區)'],['7','空調類(香雨書院)'],['8','土木建築類(香雨書院)'],['9','空調類(七股校區)'],['10','土木建築類(七股校區)'],['11','水電類(校本部)'],['12','水電類(榮譽校區)'],['13','水電類(大同校區)'],['14','水電類(香雨書院)'],['15','水電類(七股校區)'],['16','電話類(校本部)'],['17','電話類(榮譽校區)'],['18','電話類(大同校區)'],['19','電話類(香雨書院)'],['20','電話類(七股校區)'],['21','飲水機類(校本部)'],['22','飲水機類(榮譽校區)'],['23','飲水機類(大同校區)'],['24','飲水機類(香雨書院)'],['25','飲水機類(七股校區)'],['26','消防類(校本部)'],['27','消防類(榮譽校區)'],['28','消防類(大同校區)'],['29','消防類(香雨書院)'],['30','消防類(七股校區)'],['31','電梯類(校本部)'],['32','電梯類(榮譽校區)'],['33','電梯類(大同校區)'],['34','電梯類(香雨書院)'],['35','電梯類(七股校區)'],['36','教室數位講桌類(校本部)'],['37','教室數位講桌類(榮譽校區)'],['',''],['',''],['',''],
+  ];
+
+
+        var w_build = [
+['D1','七股校區'],['Y1','大同校區大同館'],['Y2','大同校區西側教室'],['A9','中山體育館'],['A10','中正館'],['A17','公共區域'],['A6','文萃樓'],['A3','文薈樓'],['A11','思源樓'],['A8','思誠樓'],['A18','柏楊文物館'],['A1','紅樓'],['A12','美術館'],['C1','香雨書院'],['A5','格致樓'],['A7','啟明苑'],['A4','雅音樓'],['A2','誠正大樓'],['B1','榮譽校區A棟'],['B2','榮譽校區B棟'],['B3','榮譽校區C棟'],['B4','榮譽校區D棟'],['B5','榮譽校區E棟'],['B7','榮譽校區公共區域'],['B6','榮譽校區忠孝堂'],['A15','益友齋'],['A16','輔仁齋'],['A161','寰宇齋'],['A13','靜敬齋'],['A14','懷遠齋(北側)'],['A141','懷遠齋(南側)'],
+  ];
+
+
+      //department[0] = ["張隆紋", "黃能富", "王炳豐", "張世杰", "張智星"];	// 資訊系
+      //department[1] = ["黃瑞星", "黃仲陵", "呂忠津", "鄭伯泰", "盧向成"];	// 電機系
+      //department[2] = ["楊敬堂", "王培仁", "葉銘權", "宋鎮國"];			// 動機系
+      //department[3] = ["王天戈", "開執中", "梁正宏"];				// 工科系
+
+
+  function renew(index) {
+      if (index > 0) {
+        index--;
+        for (var i = 0; i < department[index].length; i++)
+              document.form1.selUnit.options[i] = new Option(department[index][i][0], department[index][i][1]);	// 設定新選項
+        document.form1.selUnit.length = department[index].length;	// 刪除多餘的選項
+  }
+  else 
+  {
+        document.form1.selUnit.options[0] = new Option( "==請先選取左方單位別==", "");	// 設定新選項
+        document.form1.selUnit.length = 1;
+  }
+  }
+
+ function renew2(index) {
+
+
+         document.form1.selType0.selectedIndex = index;  // added by ming 20180504
+
+        if (index > 0) {
+      //index--;
+            var j=0;
+            for (var i = 0; i < 31; i++) {
+                if (w_build[i][0].substring(0,1) == document.form1.selBuilding0.options[index].value) {
+      //alert(document.form1.selBuilding0.options[index].value);
+                    document.form1.selBuilding.options[j] = new Option(w_build[i][1], w_build[i][0]);	// 設定新選項
+                    j++;
+  }
+  }
+            document.form1.selBuilding.length = j;	// 刪除多餘的選項
+  }
+  else 
+  {
+            document.form1.selBuilding.options[0] = new Option( "==請先選取左方校區==", "");	// 設定新選項
+            document.form1.selBuilding.length = 1;
+  }
+  }
+
+      function renew3(index) {    // added by ming 20180504
+          document.form1.selBuilding0.selectedIndex = index;
+          renew2(index);
+  
+      }
+
+
+// -->
+</SCRIPT>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="author" content="Ming Wang" />
+<meta http-equiv="refresh" content="180;">  <!--30秒更新畫面一次-->
+<link rel="stylesheet" href="./css/font.css" type="text/css">
+<STYLE TYPE="text/css">
+<!--
+body {  font-family: "Verdana", "serif"; font-size: 10pt}
+td {  font-family: "Verdana", "serif"; font-size: 10pt}
+input {  font-size: 10pt}
+p {  font-size: 10pt}
+br {  font-size: 10pt}
+tr {  font-size: 10pt}
+table {  font-size: 10pt}
+A:link { font-size: 12px; color=#6666ff; text-decoration: Underline}
+A:alink { font-size: 12px; color=#6666ff; text-decoration: Underline}
+A:visited { font-size: 12px; color=#6666ff; text-decoration: Underline}
+A:hover{ font-size: 12px; color=#000066; text-decoration: underline}
+-->
+</STYLE>
+<title>國立臺南大學修繕申請系統系統(含學生宿舍修繕) National University of Tainan, NUTN</title>
+</head>
+<body background="images/nbg1.gif">
+<center>
+<form name="form1" method="get" action="Post.asp">
+ <div id="banner" class="Log" >
+   <table border="0" cellspacing="0" style="font-size:9pt;width:100%;">
+      <tr bgcolor="#E2ECF5"> 
+          <td height="80" valign="top"> 
+		    <table border=0 width="100%" >
+			 <tr>
+			    <td width="70%"><img src="images/logo.gif" ></td>
+			    <td width="30%" align="right"><a href="login.asp" ><img src="images/arrow37.gif" width="12" height="12" border="0"><img src="images/edit.gif" width="21" height="20" border="0">申請管理</a></td>
+                <!--<td width="12%" align="right"> <div align="right"><a href="login.asp"><img src="images/i20.gif" width="20" height="18" border="0">管理回覆</a></div></td>-->
+			 </tr>
+			 </table>
+          <hr>
+            <table width="100%" border="0">
+              <tr> 
+                <td width="78%" height="23">申請類別： 
+
+
+                    <select name="selType0" id="selType0"  >  <!-- onChange="renew3(this.selectedIndex);  // added by ming 20180504" -->
+                    <option value="">==請選擇==</option>
+                        <option value="校本部">校本部</option>
+                        <option value="榮譽校區">榮譽校區</option>
+                        <option value="大同校區">大同校區</option>
+                        <option value="香雨書院">香雨書院</option>
+                        <option value="七股校區">七股校區</option>
+                    </select>
+                    <select name="selType00" id="Select00">
+                    <option value="">==請選擇==</option>
+                        <option value="水電類">水電類</option>
+                        <option value="土木建築類">土木建築類</option>
+                        <option value="電話類">電話類</option>
+                        <option value="空調類">空調類</option>                                                                          
+                        <option value="飲水機類">飲水機類</option>                      
+                        <option value="消防類">消防類</option>
+                        <option value="電梯類">電梯類</option>
+                        <option value="教室數位講桌類">教室數位講桌類</option>
+                    </select>  
+
+                <input type="hidden" name="selType" id="selType" value="">
+                    
+                    
+                    
+                     
+                  <br />
+                  單位名稱： 
+                  <select name="selUnit0" id="selUnit0" onChange="renew(this.selectedIndex);">
+                    <option value="">===請選擇===</option>
+                    
+                    <option value="人文學院" >人文學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="中心" >中心</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="附屬學校" >附屬學校</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="教育學院" >教育學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="理工學院" >理工學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="處室" >處室</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="管理學院" >管理學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="館" >館</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="環境與生態學院" >環境與生態學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                    <option value="藝術學院" >藝術學院</option>
+
+<!--                      <option value="" selected></option>-->
+
+                    
+                  </select> 
+
+                    <select name="selUnit" id="selUnit">
+	                    <option value="">==請先選取左方單位別==
+                    </select>
+
+
+                <br />建築物：
+                    
+                    <select name="selBuilding0" id="selBuilding0" onChange="renew2(this.selectedIndex);">
+                    <option value="">==請選擇==</option>
+                        <option value="A">校本部</option>
+                        <option value="B">榮譽校區</option>
+                        <option value="Y">大同校區</option>
+                        <option value="C">香雨書院</option>
+                        <option value="D">七股校區</option>
+                    </select>
+
+                    <select name="selBuilding" id="selBuilding">
+	                    <option value="">==請先選取左方校區==
+                    </select>
+
+
+                    
+                    <input type="Button" name="butQuery" value="查詢" onclick="butQuery_onClick();"> 
+                  <a href="index.htm"></a> </td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+ </div>
+ <br>
+  
+  <div id=div2 style="width:950px">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#FFCC66">
+        <tr bgcolor="#FFFFB0"> 
+          <td width="70%"> 
+            
+            <a href="Post.asp?page=1&selType=&selUnit=&selBuilding="><img src="images/niddle2.gif" width="15" height="16" border="0">第一頁</a> 
+            
+            <a href="Post.asp?page=1&selType=&selUnit=&selBuilding="></a><a href="Post.asp?page=28&selType=&selUnit=&selBuilding="><img src="images/right_3.gif" width="11" height="10" border="0">上一頁</a> 
+            
+            <a href="Post.asp?page=1&selType=&selUnit=&selBuilding="></a><a href="Post.asp?page=30&selType=&selUnit=&selBuilding="><img src="images/right_1.gif" width="11" height="10" border="0">下一頁</a> 
+            
+            <a href="Post.asp?page=1&selType=&selUnit=&selBuilding="></a><a href="Post.asp?page=50&selType=&selUnit=&selBuilding="><img src="Images/niddle2.gif" width="15" height="16" border="0">最後一頁</a> 
+            
+            <select name="pg" size="1" style="BACKGROUND-COLOR: #FFFFcc; BORDER-BOTTOM:#0066FF 1px solid; BORDER-LEFT:#0066FF 1px solid; BORDER-RIGHT:#0066FF 1px solid; BORDER-TOP:#0066FF 1px solid;" onchange="pg_onchange();">
+              
+              <option value="Post.asp?Page=01&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              01 頁 </a></option>
+              
+              <option value="Post.asp?Page=02&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              02 頁 </a></option>
+              
+              <option value="Post.asp?Page=03&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              03 頁 </a></option>
+              
+              <option value="Post.asp?Page=04&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              04 頁 </a></option>
+              
+              <option value="Post.asp?Page=05&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              05 頁 </a></option>
+              
+              <option value="Post.asp?Page=06&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              06 頁 </a></option>
+              
+              <option value="Post.asp?Page=07&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              07 頁 </a></option>
+              
+              <option value="Post.asp?Page=08&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              08 頁 </a></option>
+              
+              <option value="Post.asp?Page=09&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              09 頁 </a></option>
+              
+              <option value="Post.asp?Page=10&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              10 頁 </a></option>
+              
+              <option value="Post.asp?Page=11&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              11 頁 </a></option>
+              
+              <option value="Post.asp?Page=12&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              12 頁 </a></option>
+              
+              <option value="Post.asp?Page=13&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              13 頁 </a></option>
+              
+              <option value="Post.asp?Page=14&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              14 頁 </a></option>
+              
+              <option value="Post.asp?Page=15&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              15 頁 </a></option>
+              
+              <option value="Post.asp?Page=16&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              16 頁 </a></option>
+              
+              <option value="Post.asp?Page=17&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              17 頁 </a></option>
+              
+              <option value="Post.asp?Page=18&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              18 頁 </a></option>
+              
+              <option value="Post.asp?Page=19&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              19 頁 </a></option>
+              
+              <option value="Post.asp?Page=20&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              20 頁 </a></option>
+              
+              <option value="Post.asp?Page=21&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              21 頁 </a></option>
+              
+              <option value="Post.asp?Page=22&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              22 頁 </a></option>
+              
+              <option value="Post.asp?Page=23&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              23 頁 </a></option>
+              
+              <option value="Post.asp?Page=24&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              24 頁 </a></option>
+              
+              <option value="Post.asp?Page=25&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              25 頁 </a></option>
+              
+              <option value="Post.asp?Page=26&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              26 頁 </a></option>
+              
+              <option value="Post.asp?Page=27&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              27 頁 </a></option>
+              
+              <option value="Post.asp?Page=28&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              28 頁 </a></option>
+              
+              <option value="Post.asp?Page=29&selType=&selUnit=&selBuilding=" selected><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              29 頁 </a></option>
+              
+              <option value="Post.asp?Page=30&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              30 頁 </a></option>
+              
+              <option value="Post.asp?Page=31&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              31 頁 </a></option>
+              
+              <option value="Post.asp?Page=32&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              32 頁 </a></option>
+              
+              <option value="Post.asp?Page=33&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              33 頁 </a></option>
+              
+              <option value="Post.asp?Page=34&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              34 頁 </a></option>
+              
+              <option value="Post.asp?Page=35&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              35 頁 </a></option>
+              
+              <option value="Post.asp?Page=36&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              36 頁 </a></option>
+              
+              <option value="Post.asp?Page=37&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              37 頁 </a></option>
+              
+              <option value="Post.asp?Page=38&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              38 頁 </a></option>
+              
+              <option value="Post.asp?Page=39&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              39 頁 </a></option>
+              
+              <option value="Post.asp?Page=40&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              40 頁 </a></option>
+              
+              <option value="Post.asp?Page=41&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              41 頁 </a></option>
+              
+              <option value="Post.asp?Page=42&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              42 頁 </a></option>
+              
+              <option value="Post.asp?Page=43&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              43 頁 </a></option>
+              
+              <option value="Post.asp?Page=44&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              44 頁 </a></option>
+              
+              <option value="Post.asp?Page=45&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              45 頁 </a></option>
+              
+              <option value="Post.asp?Page=46&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              46 頁 </a></option>
+              
+              <option value="Post.asp?Page=47&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              47 頁 </a></option>
+              
+              <option value="Post.asp?Page=48&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              48 頁 </a></option>
+              
+              <option value="Post.asp?Page=49&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              49 頁 </a></option>
+              
+              <option value="Post.asp?Page=50&selType=&selUnit=&selBuilding=" ><a href="Post.asp?page=30&selType=&selUnit=&selBuilding=">第 
+              50 頁 </a></option>
+              
+            </select> 
+            
+          </td>
+          <td width="30%"> <div align="left"></div>
+            <div align="right"><font color="#009933"><img src="Images/niddle2.gif" width="15" height="16">頁數：50 
+              <img src="images/niddle2.gif" width="15" height="16">總篇數：644</font></div></td>
+        </tr>
+      </table>
+  </div>
+    <table border=1 width=950px align="center" cellpadding="0" cellspacing="0" height="20" bordercolor="#D5DFEA" >
+      <tr bgcolor="#F6F6F6"> 
+        <!--<td width="5%"> <div align="center"><font color="#333333">編號</font></div></td>-->
+        <td width="15%"> <div align="center"><font color="#333333">申請單位</font></div></td>
+        <td width="12%"> <div align="center"><font color="#333333">所在建築</font></div></td>
+        <!--<td width="14%"> <div align="center"><font color="#333333">申請類別</font></div></td>-->
+        <td width="6%"> <div align="center"><font color="#333333">申請人</font></div></td>
+        <td width="8%"><div align="center"><font color="#333333">類別</font></div></td>
+        <td width="15%"> <div align="center"><font color="#333333">請修事項或故障情形</font></div></td>
+        <td width="8%"> <div align="center"><font color="#333333">狀態</font></div></td>
+        <td width="10%"> <div align="center"><font color="#333333">申請日期</font></div></td>
+          <td width="10%"> <div align="center"><font color="#333333">預計完成日期</font></div></td>
+		<td width="10%"> <div align="center"><font color="#333333">完成日期</font></div></td>
+        <td width="5%"><font color="#333333">&nbsp;</font></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091016006-01</font></td>-->
+        <td>生物科技學系</td>
+        <td>榮譽校區E棟</td>
+        <!--<td>消防類(榮譽校區)</td>-->
+        <td>李芳儀</td>
+        <td align="center" bgcolor="#D7FFFF">消防(榮)</td>
+        <td>
+          榮譽校區E棟ZE30..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/16</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091016006-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091015017-01</font></td>-->
+        <td>生態暨環境資源學系</td>
+        <td>榮譽校區E棟</td>
+        <!--<td>消防類(榮譽校區)</td>-->
+        <td>郭庭豪</td>
+        <td align="center" bgcolor="#D7FFFF">消防(榮)</td>
+        <td>
+          ZE304水生態實驗..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/15</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091015017-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091015015-01</font></td>-->
+        <td>生態暨環境資源學系</td>
+        <td>榮譽校區E棟</td>
+        <!--<td>消防類(榮譽校區)</td>-->
+        <td>李芳儀</td>
+        <td align="center" bgcolor="#D7FFFF">消防(榮)</td>
+        <td>
+          榮譽校區E棟ZE30..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/15</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091015015-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091014002-01</font></td>-->
+        <td>總務處事務組</td>
+        <td>文薈樓</td>
+        <!--<td>水電類(校本部)</td>-->
+        <td>清潔公司員工</td>
+        <td align="center" bgcolor="#D7FFFF">水電(本)</td>
+        <td>
+          五樓走道天花板在漏水..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=red>
+          修護完成</font></td>
+        
+		<td>2020/10/14</td>
+          <td>&nbsp;</td>
+		<td>2020/10/30</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091014002-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091012010-01</font></td>-->
+        <td>電機工程學系</td>
+        <td>榮譽校區C棟</td>
+        <!--<td>土木建築類(榮譽校區)</td>-->
+        <td>蔡佐穗</td>
+        <td align="center" bgcolor="#D7FFFF">土木(榮)</td>
+        <td>
+          109/10/9星期..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          
+          <font color=black> 
+          申請修護</font></td>
+        
+		<td>2020/10/12</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091012010-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091008012-01</font></td>-->
+        <td>總務處事務組</td>
+        <td>紅樓</td>
+        <!--<td>電話類(校本部)</td>-->
+        <td>曾昱巽</td>
+        <td align="center" bgcolor="#D7FFFF">電話(本)</td>
+        <td>
+          一樓 文書組 435..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/8</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091008012-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091007012-01</font></td>-->
+        <td>圖書館系統資訊組</td>
+        <td>誠正大樓</td>
+        <!--<td>土木建築類(校本部)</td>-->
+        <td>高譽鴻</td>
+        <td align="center" bgcolor="#D7FFFF">土木(本)</td>
+        <td>
+          請維修圖書館B1館長..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=red>
+          修護完成</font></td>
+        
+		<td>2020/10/7</td>
+          <td>&nbsp;</td>
+		<td>2020/10/30</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091007012-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091007005-01</font></td>-->
+        <td>圖書館系統資訊組</td>
+        <td>誠正大樓</td>
+        <!--<td>飲水機類(校本部)</td>-->
+        <td>高譽鴻</td>
+        <td align="center" bgcolor="#D7FFFF">飲水機(本)</td>
+        <td>
+          B1飲水機清潔(螞蟻..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/7</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091007005-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091007004-01</font></td>-->
+        <td>諮商與輔導學系</td>
+        <td>文薈樓</td>
+        <!--<td>教室數位講桌類(校本部)</td>-->
+        <td>林芳瑀</td>
+        <td align="center" bgcolor="#D7FFFF">教室講桌(本)</td>
+        <td>
+          文薈樓J209教室講..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/10/7</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091007004-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1091006002-01</font></td>-->
+        <td>總務處事務組</td>
+        <td>榮譽校區A棟</td>
+        <!--<td>土木建築類(榮譽校區)</td>-->
+        <td>梁永賢</td>
+        <td align="center" bgcolor="#D7FFFF">土木(榮)</td>
+        <td>
+          A203教室講台地磚..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          
+          <font color=black> 
+          申請修護</font></td>
+        
+		<td>2020/10/6</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1091006002-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1090930009-01</font></td>-->
+        <td>文化與自然資源學系</td>
+        <td>懷遠齋(南側)</td>
+        <!--<td>水電類(校本部)</td>-->
+        <td>林映豪</td>
+        <td align="center" bgcolor="#D7FFFF">水電(本)</td>
+        <td>
+          一樓西側門廁所浴室第..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=red>
+          修護完成</font></td>
+        
+		<td>2020/9/30</td>
+          <td>&nbsp;</td>
+		<td>2020/10/30</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1090930009-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1090929010-01</font></td>-->
+        <td>總務處事務組</td>
+        <td>雅音樓</td>
+        <!--<td>水電類(校本部)</td>-->
+        <td>清潔公司員工</td>
+        <td align="center" bgcolor="#D7FFFF">水電(本)</td>
+        <td>
+          雅音樓3樓女廁第1間..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          <font color=green>
+          修護中</font></td>
+        
+		<td>2020/9/29</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1090929010-01&page=29">內容</a></div></td>
+      </tr>
+      
+      <tr bgcolor="#FFFFFF" onMouseOut=NavRollOut(this); onMouseOver=NavRollOver(this);> 
+        <!--<td align=middle><font size="1">1090929009-01</font></td>-->
+        <td>體育室</td>
+        <td>中山體育館</td>
+        <!--<td>土木建築類(校本部)</td>-->
+        <td>曾雅竫</td>
+        <td align="center" bgcolor="#D7FFFF">土木(本)</td>
+        <td>
+          新排球場，外側放排球..
+        </td>
+        <td align="center" bgcolor="#FFE1FF"> 
+          
+          <font color=black> 
+          申請修護</font></td>
+        
+		<td>2020/9/29</td>
+          <td>&nbsp;</td>
+		<td>&nbsp;</td>
+        <td align=middle> <div align="center"><a href="Content.asp?serial=1090929009-01&page=29">內容</a></div></td>
+      </tr>
+      
+    </table>
+ </form>
+  </center>
+</body>
+</html>
